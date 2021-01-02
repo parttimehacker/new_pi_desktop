@@ -79,7 +79,7 @@ At this point you should clone new_pi_desktop into the **PI** user home director
 git clone https://github.com/parttimehacker/newpi.git
 
 ```
-- Make basic_and_netowrk.sh bash script executable and run the script
+Make basic_and_network.sh bash script executable and run the script
 ```
 cd new_pi_desktop
 chmod +x *.sh
@@ -90,66 +90,39 @@ Apple's **netatalk** requires a small update for the home directory. Edit the fi
 ```
 sudo vi /etc/netatalk/afp.conf
 ```
-- Change the following at the bottom
+Change the commented out home for **netatalk**
 ```
 [Homes]
   basedir regex = /home
 ```
-
 Ok, this is a good time to reboot and test network access, etc.
 
-- Optional - test the I2C bus for devices
-`sudo i2cdetect -y 1`
-
 ## Improve Security add a NEW USER
+Last but not least is an added security step to create a new user and to delete the **PI** account.
 
 Create a **NEW USER** and **PASSWORD**
 ```
 sudo useradd -m NEWUSER -G sudo
 sudo passwd NEWUSER
 ```
-
-- Add a no password required for **newuser** at the bottom
+Add a no password required for **NEW USER** at the bottom
 ```
 sudo visudo
 newuser ALL=NOPASSWD: ALL
 ```
-- Save and then add /bin/bash to the **newuser**
+Save, logout and login as the **NEW USER**
+
+Remove the **PI** user account 
+
 ```
-sudo vi /etc/passwd
-/bin/bash
+sudo deluser -remove-home pi
 ```
-- Logout and login as the **newuser**
 
-- Remove the **pi** user and /home/pi:
+This completes the configuration with Python development enviroment and some of my favorite modules
 
-Login to the **new user** account and delete the **pi** account to improve your security. 
+## Optional Stuff
 
-`sudo deluser -remove-home pi`
-
-- Completes the configuration with Python development enviroment and some of my favorite modules
-
-## Set up postgresql data base user
-
-- start DB
-
-`sudo -u postgres psql`
-
-- create a user (a ‘role’ in Postgres terminology) and terminate with semicolon
-
-`CREATE ROLE pi WITH LOGIN PASSWORD ‘password’;`
-
-- create a database:
-
-`CREATE DATABASE diyhas WITH OWNER pi;`
-
-- exit with
-
-`\q`
-
-# Optional Stuff
-
-- Optional - If the terminal font is too small then you can change it from the command line
+If the terminal font is too small then you can change it from the command line
 ```
 sudo vi /etc/default/console-setup 
 ```
@@ -158,23 +131,10 @@ sudo vi /etc/default/console-setup
 FONTFACE="Terminus
 FONTSIZE="16x32"
 ```
-- Install screen to avoid timout on ssh session
-
-     
-## Install system status service
-------------
-
-`git clone https://github.com/parttimehacker/diystatus.git`
-
-- Follow instructions
-
+This is optional but a good idea to test the I2C bus for future IOT devices
 ```
-cd diystatus
-chmod +x *.sh
-./import.script.sh
-./setup.systemctl.sh diystatus
+sudo i2cdetect -y 1
 ```
-
 Licence
 -------
 
