@@ -4,19 +4,13 @@ Process to install Raspbian OS desktop version on a new Raspberry Pi.
 
 # Description
 
-This repository contains instructions and bash scripts I use to configure new Raspberry Pi devices with the Raspbian OS desktop software. My process is still manual but its getting better (docker is in my future). I use the Raspberry Pi Image Installer to copy the latest Raspberry Foundation image to a SD card. I enable SSH and set up Wi-Fi on the SD card while its still in my laptop.   
-
-At this point you should clone newpi into the **pi** user home directory. Run the `./start-and-network.sh` bash script to get upgrades and set up file sharing on the network.
-
-I strongly recommend creating a **<newuser>**, logout of the **pi** account. Login to the **<newuser>** account and delete the **pi** user to improve your security. 
-
-At this point you need to git clone your applications.
+This repository contains instructions and bash scripts I use to configure new Raspberry Pi devices with the Raspbian OS desktop software. My process is still manual but its getting better (docker is in my future). I use the Raspberry Pi Image Installer to copy the latest Raspberry Foundation image to a SD card. I enable SSH and set up Wi-Fi on the SD card while its still in my laptop. I strongly recommend creating a **new user** account and delete the **pi** account. 
 
 # Laptop-based Image Copy and SSH Setup
 
-- Flash the latest Raspberry Pi image to an SD card and then update the mounted boot drive
+Flash the latest Raspberry Pi image to an SD card,  then update the mounted boot drive
 
-Download the Raspberry Pi Image Installer at https://www.raspberrypi.org/downloads/
+- Download the Raspberry Pi Image Installer at https://www.raspberrypi.org/downloads/
 
 ```
 cd /Volumes/boot
@@ -26,7 +20,7 @@ touch ssh
 ```
 vi wpa_supplicant.conf
 ```
-- Edit SSID and PASSWORD for your network
+- Edit **SSID** and **PASSWORD** for your network
 ```
 country=US
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -37,14 +31,14 @@ psk="PASSWORD"
 key_mgmt=WPA-PSK
 }
 ```
-- Unmount the SD card; insert into your Raspberry Pi and boot.  I like to use a monitor and keyboard/mouse for the initial setup and then use VNC. 
+- Unmount the SD card; insert into your Raspberry Pi and boot.  I like to use a monitor and keyboard/mouse combination for the initial setup and then use VNC. 
 
 # Configuring Your Raspberry Pi
 
 * Select country, language, timezone and language
 * Enter a password
 * Select your wireless network (if applicable)
-* Update software
+* Update software 
 
 - Login as **pi** and execute raspi-config to set up the following
 
@@ -76,6 +70,8 @@ screen bash
 ```
 sudo apt-get -y install git
 git clone https://github.com/parttimehacker/newpi.git
+
+At this point you should clone newpi into the **pi** user home directory. Run the `./start-and-network.sh` bash script to get upgrades and set up file sharing on the network.
 ```
 - Make start-and-network.sh executable and run the script
 ```
@@ -118,6 +114,8 @@ sudo vi /etc/passwd
 - Logout and login as the **newuser**
 
 - Remove the **pi** user and /home/pi:
+
+Login to the **new user** account and delete the **pi** account to improve your security. 
 
 `sudo deluser -remove-home pi`
 
