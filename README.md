@@ -20,7 +20,7 @@ touch ssh
 ```
 vi wpa_supplicant.conf
 ```
-- Edit **SSID** and **PASSWORD** for your network
+- Change the **SSID** and **PASSWORD** for your network
 ```
 country=US
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
@@ -31,14 +31,19 @@ psk="PASSWORD"
 key_mgmt=WPA-PSK
 }
 ```
-- Unmount the SD card; insert into your Raspberry Pi and boot.  I like to use a monitor and keyboard/mouse combination for the initial setup and then use VNC. 
+- Unmount the SD card, insert into your Raspberry Pi and boot.  I like to use a monitor and keyboard/mouse combination for the initial setup and then use VNC. 
 
 # Configuring Your Raspberry Pi
+
+A default configuraiton dialog will start on the first boot of your new SD card. You will be required to setup the following.
 
 * Select country, language, timezone and language
 * Enter a password
 * Select your wireless network (if applicable)
-* Update software 
+* Update the desktop OS image software 
+* Reboot 
+
+
 
 - Login as **pi** and execute raspi-config to set up the following
 
