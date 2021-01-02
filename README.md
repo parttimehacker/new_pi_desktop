@@ -73,39 +73,40 @@ sudo apt-get -y install screen
 screen bash
 ```
 
-At this point you should clone new_pi_desktop into the **PI** user home directory. Run the `./start-and-network.sh` bash script to get upgrades and set up file sharing on the network.
+At this point you should clone new_pi_desktop into the **PI** user home directory. Run the `./basic_and_network.sh` bash script to get upgrades and set up file sharing on the network.
 
 ```
 git clone https://github.com/parttimehacker/newpi.git
 
-At this point you should clone newpi into the **pi** user home directory. Run the `./start-and-network.sh` bash script to get upgrades and set up file sharing on the network.
 ```
-- Make start-and-network.sh executable and run the script
+- Make basic_and_netowrk.sh bash script executable and run the script
 ```
-cd newpi
+cd new_pi_desktop
 chmod +x *.sh
-./start-and-network.sh
+./basic_and_network.sh
 ```
-- NOTE - Raspberry pi buster release has an issue with netatalk. You need to add home to the conf
+Apple's **netatalk** requires a small update for the home directory. Edit the file, uncomment **Homes** and replace **xxxx** with **home**.
+
 ```
 sudo vi /etc/netatalk/afp.conf
 ```
-- Add the following at the bottom
+- Change the following at the bottom
 ```
 [Homes]
   basedir regex = /home
 ```
-- It is a good idea to reboot and test the network
+
+Ok, this is a good time to reboot and test network access, etc.
 
 - Optional - test the I2C bus for devices
 `sudo i2cdetect -y 1`
 
-## Lets add some security and new user
+## Improve Security add a NEW USER
 
-- Create a **newuser** and password
+Create a **NEW USER** and **PASSWORD**
 ```
-sudo useradd -m newuser -G sudo
-sudo passwd newuser
+sudo useradd -m NEWUSER -G sudo
+sudo passwd NEWUSER
 ```
 
 - Add a no password required for **newuser** at the bottom
