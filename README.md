@@ -31,7 +31,7 @@ psk="PASSWORD"
 key_mgmt=WPA-PSK
 }
 ```
-- Unmount the SD card, insert into your Raspberry Pi and boot.  I like to use a monitor and keyboard/mouse combination for the initial setup and then use VNC. 
+Unmount the SD card, insert into your Raspberry Pi and boot.  I like to use a monitor and keyboard/mouse combination for the initial setup and then use VNC. 
 
 # Configuring Your Raspberry Pi
 
@@ -54,24 +54,28 @@ Next you want to run the Raspberry Pi Configation dialog. Update the following:
 
 The next few steps are needed to prepare for remote develoment, testing and management of the Raspberry Pi. 
 
-- Configure VNC step by step
+Configure VNC step by step
 
 * Select options
 * Encryption - Prefer off
 * Authentication - VNC password
 * Apply and Ok
 
-- Test access via VNC 
+Test access via VNC and then switch to your development host (Mac Book Pro).
 
 ### Remote Access and Final Configuration
 
-Login to the new device from your development host (Mac Book Pro).
+Remote login to the new device from your development host and install **screen**. I like to use **screen** because some of the **apt-get** and **pip3** commands may cause a time out on the ssh terminal.
 
-
-  
-## Install git and then clone `newpi` repository
 ```
 sudo apt-get -y install git
+sudo apt-get -y install screen
+screen bash
+```
+
+At this point you should clone new_pi_desktop into the **PI** user home directory. Run the `./start-and-network.sh` bash script to get upgrades and set up file sharing on the network.
+
+```
 git clone https://github.com/parttimehacker/newpi.git
 
 At this point you should clone newpi into the **pi** user home directory. Run the `./start-and-network.sh` bash script to get upgrades and set up file sharing on the network.
@@ -154,10 +158,7 @@ FONTFACE="Terminus
 FONTSIZE="16x32"
 ```
 - Install screen to avoid timout on ssh session
-```
-sudo apt -y install screen
-screen bash
-```
+
      
 ## Install system status service
 ------------
