@@ -4,7 +4,7 @@ Process to install Raspbian OS desktop version on a new Raspberry Pi.
 
 # Description
 
-This repository contains instructions and bash scripts I use to configure new Raspberry Pi devices with the Raspbian OS desktop software. My process is still manual but its getting better (docker is in my future). I use the Raspberry Pi Image Installer to copy the latest Raspberry Foundation image to a SD card. I enable SSH and set up Wi-Fi on the SD card while its still in my laptop. I strongly recommend creating a **new user** account and delete the **pi** account. 
+This repository contains instructions and bash scripts I use to configure new Raspberry Pi devices with the Raspbian OS desktop software. My process is still manual but its getting better (docker is in my future). I use the Raspberry Pi Image Installer to copy the latest Raspberry Foundation image to a SD card. I enable SSH and set up Wi-Fi on the SD card while its still in my laptop. I strongly recommend creating a **NEW USER** account and delete the **PI** account. 
 
 # Laptop-based Image Copy and SSH Setup
 
@@ -40,37 +40,35 @@ A default configuraiton dialog will start on the first boot of your new SD card.
 * Select country, language, timezone and language
 * Enter a password
 * Select your wireless network (if applicable)
-* Update the desktop OS image software 
+* Update the desktop OS image software - get a cup of coffee
 * Reboot 
 
+Next you want to run the Raspberry Pi Configation dialog. Update the following:
+
+* New password for **PI** user
+* Hostname for your new device
+* Interfaces: Camera, SSH, VNC, SPI and I2C
+* Reboot
+
+## Preparing Remote Access
+
+The next few steps are needed to prepare for remote develoment, testing and management of the Raspberry Pi. 
+
+- Configure VNC step by step
+
+* Select options
+* Encryption - Prefer off
+* Authentication - VNC password
+* Apply and Ok
+
+- Test access via VNC 
+
+### Remote Access and Final Configuration
+
+Login to the new device from your development host (Mac Book Pro).
 
 
-- Login as **pi** and execute raspi-config to set up the following
-
-  * new password for pi user
-  * hostname 
-  * character set localization
-  * time zone
-  * interfaces for camera, SPI and I2C
   
-```
-sudo raspi-config 
-```
-
-- Optional - If the terminal font is too small then you can change it from the command line
-```
-sudo vi /etc/default/console-setup 
-```
-- Enter the following, save and exit
-```
-FONTFACE="Terminus
-FONTSIZE="16x32"
-```
-- Install screen to avoid timout on ssh session
-```
-sudo apt -y install screen
-screen bash
-```
 ## Install git and then clone `newpi` repository
 ```
 sudo apt-get -y install git
@@ -143,6 +141,23 @@ Login to the **new user** account and delete the **pi** account to improve your 
 - exit with
 
 `\q`
+
+# Optional Stuff
+
+- Optional - If the terminal font is too small then you can change it from the command line
+```
+sudo vi /etc/default/console-setup 
+```
+- Enter the following, save and exit
+```
+FONTFACE="Terminus
+FONTSIZE="16x32"
+```
+- Install screen to avoid timout on ssh session
+```
+sudo apt -y install screen
+screen bash
+```
      
 ## Install system status service
 ------------
