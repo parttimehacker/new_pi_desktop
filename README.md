@@ -10,7 +10,7 @@ This repository contains instructions and bash scripts I use to configure new Ra
 
 Flash the latest Raspberry Pi image to an SD card,  then update the mounted boot drive
 
-- Download the Raspberry Pi Image Installer at https://www.raspberrypi.org/downloads/
+Download the Raspberry Pi Image Installer at https://www.raspberrypi.org/downloads/
 
 ```
 cd /Volumes/boot
@@ -20,7 +20,7 @@ touch ssh
 ```
 vi wpa_supplicant.conf
 ```
-- Change the **SSID** and **PASSWORD** for your network
+Change the **SSID** and **PASSWORD** for your network
 ```
 country=US
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
