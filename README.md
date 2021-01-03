@@ -14,7 +14,7 @@ Flash the latest Raspberry Pi image to an SD card, then update the mounted boot 
 cd /Volumes/boot
 touch ssh
 ```
-- Edit the wpa supplicant file
+Edit the wpa supplicant file
 ```
 vi wpa_supplicant.conf
 ```
