@@ -8,9 +8,7 @@ This repository contains instructions and bash scripts I use to configure new Ra
 
 # Laptop-based Image Copy and SSH Setup
 
-Flash the latest Raspberry Pi image to an SD card,  then update the mounted boot drive
-
-Download the Raspberry Pi Image Installer at https://www.raspberrypi.org/downloads/
+Flash the latest Raspberry Pi image to an SD card, then update the mounted boot drive. Download the Raspberry Pi Image Installer at https://www.raspberrypi.org/downloads/
 
 ```
 cd /Volumes/boot
