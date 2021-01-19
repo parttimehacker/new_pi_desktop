@@ -74,8 +74,7 @@ screen bash
 At this point you should clone new_pi_desktop into the **PI** user home directory. Run the `./basic_and_network.sh` bash script to get upgrades and set up file sharing on the network.
 
 ```
-git clone https://github.com/parttimehacker/newpi.git
-
+git clone https://github.com/parttimehacker/new_pi_desktop.git
 ```
 Make basic_and_network.sh bash script executable and run the script
 ```
