@@ -41,8 +41,11 @@ A default configuration dialog will start on the first boot of your new SD card.
 * Update the desktop OS image software - get a cup of coffee
 * Reboot 
 
-Next you want to run the Raspberry Pi Configation dialog. Update the following with **sudo raspi-config**:
+Next you want to run the Raspberry Pi Configation dialog. Update the following with:
 
+```
+sudo raspi-config
+```
 * New password for **PI** user
 * Hostname for your new device
 * Interfaces: Camera, SSH, VNC, SPI and I2C
