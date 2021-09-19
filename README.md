@@ -33,7 +33,7 @@ Unmount the SD card, insert into your Raspberry Pi and boot.  I like to use a mo
 
 # Configuring Your Raspberry Pi
 
-A default configuraiton dialog will start on the first boot of your new SD card. You will be required to setup the following.
+A default configuration dialog will start on the first boot of your new SD card. You will be required to setup the following.
 
 * Select country, language, timezone and language
 * Enter a password
