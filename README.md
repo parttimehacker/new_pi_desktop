@@ -85,6 +85,10 @@ cd new_pi_desktop
 chmod +x *.sh
 ./basic_and_network.sh
 ```
+This is optional but a good idea to test the I2C bus for future IOT devices
+```
+sudo i2cdetect -y 1
+```
 Apple's **netatalk** requires a small update for the home directory. Edit the file, uncomment **Homes** and replace **xxxx** with **home**.
 
 ```
@@ -130,10 +134,6 @@ sudo vi /etc/default/console-setup
 ```
 FONTFACE="Terminus
 FONTSIZE="16x32"
-```
-This is optional but a good idea to test the I2C bus for future IOT devices
-```
-sudo i2cdetect -y 1
 ```
 Licence
 -------
