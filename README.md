@@ -68,6 +68,11 @@ Test access via VNC and then switch to your development host (Mac Book Pro).
 
 Remote login to the new device from your development host and install **screen**. I like to use **screen** because some of the **apt-get** and **pip3** commands may cause a time out on the ssh terminal.
 
+The is an issue with the firewall ufw tables - enter the following command reboot.
+```
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+```
+Continue with the normal configuration
 ```
 sudo apt-get -y install git
 sudo apt-get -y install screen
