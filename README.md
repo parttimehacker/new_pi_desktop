@@ -33,22 +33,18 @@ Unmount the SD card, insert into your Raspberry Pi and boot.  I like to use a mo
 
 # Configuring Your Raspberry Pi
 
-A default configuration dialog will start on the first boot of your new SD card. You will be required to setup the following.
+A default configuration dialog will start on the first boot of your new SD card.
 
-* Select country, language, timezone and language
-* Enter a password
-* Select your wireless network (if applicable)
-* Update the desktop OS image software - get a cup of coffee
-* Reboot 
-
-Next you want to run the Raspberry Pi Configation dialog. Update the following with:
+First run raspi-config, the Raspberry Pi Configation dialog. 
 
 ```
 sudo raspi-config
 ```
+Update the following with:
 * New password for **PI** user
 * Hostname for your new device
-* Interfaces: Camera, SSH, VNC, SPI and I2C
+* Select locale and timezone
+* Enable nterfaces: Camera, SSH, VNC, SPI and I2C
 * Reboot
 
 ## Preparing Remote Access
