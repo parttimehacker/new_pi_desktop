@@ -45,34 +45,15 @@ Update the following with:
 * Enable nterfaces: Camera, SSH, VNC, SPI and I2C
 * Reboot
 
-## Preparing Remote Access
-
-The next few steps are needed to prepare for remote develoment, testing and management of the Raspberry Pi. 
-
-Configure VNC step by step
-
-* Select options
-* Encryption - Prefer off
-* Authentication - VNC password
-* Apply and Ok
-
-Test access via VNC and then switch to your development host (Mac Book Pro).
-
-### Remote Access and Final Configuration
+### Remote Access and Development Configuration
 
 Remote login to the new device from your development host and install **screen**. I like to use **screen** because some of the **apt-get** and **pip3** commands may cause a time out on the ssh terminal.
 
-There is an issue with the firewall ufw tables - enter the following command reboot.
-```
-sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
-```
-Continue with the normal configuration
 ```
 sudo apt-get -y install git
 sudo apt-get -y install screen
 screen bash
 ```
-
 At this point you should clone new_pi_desktop into the **PI** user home directory. Run the `./basic_and_network.sh` bash script to get upgrades and set up file sharing on the network.
 
 ```
@@ -124,6 +105,19 @@ sudo deluser -remove-home pi
 This completes the configuration with Python development enviroment and some of my favorite modules
 
 ## Optional Stuff
+
+## Preparing Remote Access
+
+The next few steps are needed to prepare for remote develoment, testing and management of the Raspberry Pi. 
+
+Configure VNC step by step
+
+* Select options
+* Encryption - Prefer off
+* Authentication - VNC password
+* Apply and Ok
+
+Test access via VNC and then switch to your development host (Mac Book Pro).
 
 If the terminal font is too small then you can change it from the command line
 ```
